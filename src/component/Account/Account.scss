@@ -1,0 +1,49 @@
+@import "~/src/styles/partials/variables";
+@import "~/src/styles/partials/mixins";
+
+.account {
+    &--container {
+        overflow-x: auto;
+
+        @include maxOrientation(1024, portrait) {
+            white-space: nowrap;
+        }
+        
+        &-head {
+            border-radius: 10px 10px 0;
+
+            @include maxOrientation(1024, portrait) {
+                >li {
+                    width: 50vw;
+                }
+            }
+        }
+
+        &-body {
+            border-radius: 0 0 10px 10px;
+        }
+        
+        &-head, &-body {
+            >li {
+                .content {
+                    white-space: normal;
+                }
+            }
+        }
+
+        &-wrap {
+            max-height: 700px;
+            display: inline-block;
+        }
+
+        @include maxOrientation(1024, portrait) {
+            &-sub {
+                >li {
+                    width: 50vw;
+                }
+            }
+            
+        }
+        
+    }
+}

@@ -1,0 +1,37 @@
+@import "~/src/styles/partials/variables";
+
+.custom--checkbox {
+    label {
+        flex: 1;
+        cursor: pointer;
+        user-select: none;
+
+        &::before {
+            content: '';
+            width: 15px;
+            height: 15px;
+            border: 1px solid $white;
+            margin-right: 10px;
+        }
+    }
+
+    input {
+        appearance: none;
+
+        &:checked {
+            +label {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 5px;
+                    top: 40%;
+                    height: 10px;
+                    width: 5px;
+                    transform: translateY(-50%) rotate(45deg);
+                    border: solid $white;
+                    border-width: 0 2px 2px 0;
+                }
+            }
+        }
+    }
+}

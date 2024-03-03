@@ -1,0 +1,33 @@
+@import "~/src/styles/partials/variables";
+
+.login {
+    &--form {
+        min-height: 100vh;
+
+        &-error {
+            bottom: 5px;
+            left: 0;
+        }
+    }
+
+    &--container {
+        max-width: 600px;
+    }
+
+    &--or {
+        &::before, &::after {
+            content: '';
+            display: block;
+            border-top: 2px solid rgba($white, 0.3);
+            width: 100%;
+        }
+
+        &::before {
+            margin-right: 10px;
+        }
+
+        &::after {
+            margin-left: 10px;
+        }
+    }
+}
