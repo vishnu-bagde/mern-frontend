@@ -17,6 +17,7 @@
 
     input {
         appearance: none;
+        display: none;
 
         &:checked {
             +label {

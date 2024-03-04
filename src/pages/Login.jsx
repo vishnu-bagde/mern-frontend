@@ -82,17 +82,25 @@ const LoginPage = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
 
+        console.log(validate(), logIn)
         if (validate() && !logIn) {
             setLogIn(true)
 
             toggleGlobalLoader(true)
             if(isSignup) {
-                await signUp(formState.loginMail, formState.loginPassword)
-            } else {
-                await signIn(formState.loginMail, formState.loginPassword).catch(err => setErrors(prevState => ({
+                await signUp(formState.loginMail, formState.loginPassword).catch(err => {
+                    setLogIn(false)
+                    setErrors(prevState => ({
                     ...prevState,
                     form: "Invalid credentials"
-                })))
+                })) })
+            } else {
+                await signIn(formState.loginMail, formState.loginPassword).catch(err => {
+                    setLogIn(false)
+                    setErrors(prevState => ({
+                    ...prevState,
+                    form: "Invalid credentials"
+                }))})
             }
             toggleGlobalLoader(false)
         }
